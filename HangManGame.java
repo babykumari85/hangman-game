@@ -11,8 +11,6 @@ public class HangManGame {
 		int wordLength = word.length();
 		int noOfChance = wordLength;
 		int count = 0;
-		
-		
 
 		System.out.println("Player2");
 		System.out.println("You have " + noOfChance + " chances to guess the word.");
@@ -39,16 +37,16 @@ public class HangManGame {
 				System.out.println(letter + " is not valid guess!");
 				continue;
 			}
-			
+
 			try {
 				int x = Integer.parseInt(letter);
 
-				if(x >= 0 && x<=9 ) {
+				if (x >= 0 && x <= 9) {
 					System.out.println(letter + " is not valid guess!");
 					continue;
 				}
 			} catch (NumberFormatException e) {
-				
+
 			}
 
 			char ch = letter.charAt(0);
@@ -60,35 +58,34 @@ public class HangManGame {
 					matchedChars[i] = c;
 					charFound = true;
 					count++;
-					
+
 				}
 
 			}
-			
+
 			if (charFound) {
-				
+
 				System.out.println("Chance reamining " + noOfChance);
 				System.out.print("Word:: ");
 				for (int i = 0; i < wordLength; i++) {
 					System.out.print(matchedChars[i]);
-					
+
 				}
-			}
-			else {
+			} else {
 				noOfChance--;
-				wrongGuess += ch; 
+				wrongGuess += ch;
 				System.out.println("Wrong guess!");
 				System.out.println("Chance reamining " + noOfChance);
 				System.out.println("Wrong Guesses :: " + wrongGuess);
 			}
-			
-			if(count == wordLength) {
+
+			if (count == wordLength) {
 				System.out.println("");
 				System.out.println("Congrats . You WON! ");
 				System.out.println("You have correctly guess the word " + word);
 				isDone = true;
 			}
-			
+
 			if (noOfChance == 0) {
 				System.out.println("Oops you have no chance remaining. You lose");
 				isDone = true;
